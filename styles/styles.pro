@@ -9,7 +9,8 @@ RESOURCES     = styles.qrc
 
 DESTDIR = $$_PRO_FILE_PWD_/../bin/
 
-CONFIG += c++11
+CONFIG += c++11 link_pkgconfig
+PKGCONFIG += dtkwidget
 
 # install
 # target.path = $$[QT_INSTALL_EXAMPLES]/widgets/widgets/styles

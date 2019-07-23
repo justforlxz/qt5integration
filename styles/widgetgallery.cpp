@@ -42,6 +42,9 @@
 
 #include "norwegianwoodstyle.h"
 #include "widgetgallery.h"
+#include "dbackgroundgroup.h"
+
+DWIDGET_USE_NAMESPACE
 
 //! [0]
 WidgetGallery::WidgetGallery(QWidget *parent)
@@ -95,17 +98,33 @@ WidgetGallery::WidgetGallery(QWidget *parent)
     topLayout->addWidget(useStylePaletteCheckBox);
     topLayout->addWidget(disableWidgetsCheckBox);
 
-    QGridLayout *mainLayout = new QGridLayout(mainWidget);
-    mainLayout->addLayout(topLayout, 0, 0, 1, 2);
-    mainLayout->addWidget(topLeftGroupBox, 1, 0);
-    mainLayout->addWidget(topRightGroupBox, 1, 1);
-    mainLayout->addWidget(bottomLeftTabWidget, 2, 0);
-    mainLayout->addWidget(bottomRightGroupBox, 2, 1);
-    mainLayout->addWidget(progressBar, 3, 0, 1, 2);
-    mainLayout->setRowStretch(1, 1);
-    mainLayout->setRowStretch(2, 1);
-    mainLayout->setColumnStretch(0, 1);
-    mainLayout->setColumnStretch(1, 1);
+    QVBoxLayout* testLayout = new QVBoxLayout;
+    testLayout->setMargin(0);
+    testLayout->setSpacing(10);
+
+    for (int i = 0; i != 5; ++i) {
+        QLabel* test = new QLabel("test");
+        test->setFixedSize(220, 36);
+        testLayout->addWidget(test);
+    }
+
+    DBackgroundGroup* grp = new DBackgroundGroup;
+    grp->setLayout(testLayout);
+
+    QVBoxLayout* l = new QVBoxLayout(mainWidget);
+    l->addWidget(grp);
+
+//    QGridLayout *mainLayout = new QGridLayout(mainWidget);
+//    mainLayout->addLayout(topLayout, 0, 0, 1, 2);
+//    mainLayout->addWidget(topLeftGroupBox, 1, 0);
+//    mainLayout->addWidget(topRightGroupBox, 1, 1);
+//    mainLayout->addWidget(bottomLeftTabWidget, 2, 0);
+//    mainLayout->addWidget(bottomRightGroupBox, 2, 1);
+//    mainLayout->addWidget(progressBar, 3, 0, 1, 2);
+//    mainLayout->setRowStretch(1, 1);
+//    mainLayout->setRowStretch(2, 1);
+//    mainLayout->setColumnStretch(0, 1);
+//    mainLayout->setColumnStretch(1, 1);
 
     setWindowTitle(tr("Styles"));
     changeStyle("NorwegianWood");

@@ -74,6 +74,9 @@ private:
 
     bool drawShapedFrameControl(const QStyleOption *option, QPainter *painter, const QWidget *widget) const;
 
+    //background
+    bool drawWidgetBackground(const QStyleOption* option, QPainter* painter, const QWidget *widget) const;
+
     // push button
     bool drawPushButtonBevel(const QStyleOption*, QPainter*, const QWidget*) const;
     bool drawPushButtonLabel(const QStyleOption *, QPainter *, const QWidget *) const;

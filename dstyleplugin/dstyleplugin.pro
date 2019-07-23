@@ -13,6 +13,7 @@ TEMPLATE = lib
 CONFIG += plugin
 
 SOURCES += dstyleplugin.cpp \
+    backgroundhelper.cpp \
     style.cpp \
     sliderhelper.cpp \
     colorutils.cpp \

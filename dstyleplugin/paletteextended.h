@@ -111,7 +111,10 @@ public:
         TabBarScrollButton_UpIcon,
         TabBarScrollButton_DownIcon,
         TabBarAddButton_BackgroundBrush,
-        TabBarAddButton_Icon
+        TabBarAddButton_Icon,
+
+        BackgroundGroup_BackgroundColor,
+        BackgroundGroup_BorderColor,
     };
 #if QT_VERSION < QT_VERSION_CHECK(5, 5, 0)
     Q_ENUMS(BrushName)
